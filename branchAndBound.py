@@ -1,4 +1,3 @@
-
 class No: #criação da classe que será usada para representar cada ponto(x,y) na matriz, e seu custo
     def __init__(self, posicao, pai):
         self.posicao = posicao
@@ -61,7 +60,7 @@ def bnb(mat, start, goal): # implementação do branch-and-bound
             noProximo.h = calcularDistancia(noProximo, noGoal)
             noProximo.f = noProximo.g + noProximo.h + mat[proximo[0]][proximo[1]] + noProximo.pai.f
 
-            if(addListaAberta(listaAberta, noProximo) == True):
+            if(addListaAberta(listaAberta, listaFechada, noProximo) == True):
                 listaAberta.append(noProximo)
 
     return None
@@ -75,8 +74,12 @@ def calcularDistancia(noOrigem, noDestino): # calcular a distancia entre duas ce
     else:
         return distY
 
-def addListaAberta(listaAberta, noProximo): # verificar se o no atual já se encontra na lista aberta, e caso contrario, adiciona-lo 
+def addListaAberta(listaAberta, listaFechada, noProximo): # verificar se o no atual já se encontra na lista aberta, e caso contrario, adiciona-lo 
     for no in listaAberta:
+        if(noProximo.posicao == no.posicao):
+            return False
+    
+    for no in listaFechada:
         if(noProximo.posicao == no.posicao):
             return False
     return True
@@ -247,9 +250,12 @@ while op != 0:
             if op2 == 1:
                 if(verificarEntradas(mat1, start, goal)):
                     path = bnb(mat1, start, goal)
-                    print("\nMelhor caminho encontrado: \n")
-                    for i in range(len(path)-1, -1, -1):
-                        print(path[i], end='\t')
+                    if(path == None):
+                        print("\nCaminho não encontrado", end="")
+                    else:
+                        print("\nMelhor caminho encontrado: \n")
+                        for i in range(len(path)-1, -1, -1):
+                            print(path[i], end='\t')
 
                     print()
                 else:
@@ -258,9 +264,12 @@ while op != 0:
             elif op2 == 2:
                 if(verificarEntradas(mat2, start, goal)):
                     path = bnb(mat2, start, goal)
-                    print("\nMelhor caminho encontrado: \n")
-                    for i in range(len(path)-1, -1, -1):
-                        print(path[i], end='\t')
+                    if(path == None):
+                        print("\nCaminho não encontrado", end="")
+                    else:
+                        print("\nMelhor caminho encontrado: \n")
+                        for i in range(len(path)-1, -1, -1):
+                            print(path[i], end='\t')
 
                     print()
                 else:
@@ -269,9 +278,12 @@ while op != 0:
             elif op2 == 3:
                 if(verificarEntradas(mat3, start, goal)):
                     path = bnb(mat3, start, goal)
-                    print("\nMelhor caminho encontrado: \n")
-                    for i in range(len(path)-1, -1, -1):
-                        print(path[i], end='\t')
+                    if(path == None):
+                        print("\nCaminho não encontrado", end="")
+                    else:
+                        print("\nMelhor caminho encontrado: \n")
+                        for i in range(len(path)-1, -1, -1):
+                            print(path[i], end='\t')
 
                     print()
                 else:
@@ -280,9 +292,12 @@ while op != 0:
             elif op2 == 4:
                 if(verificarEntradas(mat4, start, goal)):
                     path = bnb(mat4, start, goal)
-                    print("\nMelhor caminho encontrado: \n")
-                    for i in range(len(path)-1, -1, -1):
-                        print(path[i], end='\t')
+                    if(path == None):
+                        print("\nCaminho não encontrado", end="")
+                    else:
+                        print("\nMelhor caminho encontrado: \n")
+                        for i in range(len(path)-1, -1, -1):
+                            print(path[i], end='\t')
 
                     print()
                 else:
@@ -291,9 +306,12 @@ while op != 0:
             elif op2 == 5:
                 if(verificarEntradas(mat5, start, goal)):
                     path = bnb(mat5, start, goal)
-                    print("\nMelhor caminho encontrado: \n")
-                    for i in range(len(path)-1, -1, -1):
-                        print(path[i], end='\t')
+                    if(path == None):
+                        print("\nCaminho não encontrado", end="")
+                    else:
+                        print("\nMelhor caminho encontrado: \n")
+                        for i in range(len(path)-1, -1, -1):
+                            print(path[i], end='\t')
 
                     print()
                 else:
@@ -302,9 +320,12 @@ while op != 0:
             elif op2 == 6:
                 if(verificarEntradas(mat6, start, goal)):
                     path = bnb(mat6, start, goal)
-                    print("\nMelhor caminho encontrado: \n")
-                    for i in range(len(path)-1, -1, -1):
-                        print(path[i], end='\t')
+                    if(path == None):
+                        print("\nCaminho não encontrado", end="")
+                    else:
+                        print("\nMelhor caminho encontrado: \n")
+                        for i in range(len(path)-1, -1, -1):
+                            print(path[i], end='\t')
 
                     print()
                 else:
@@ -313,9 +334,12 @@ while op != 0:
             elif op2 == 7:
                 if(verificarEntradas(mat7, start, goal)):
                     path = bnb(mat7, start, goal)
-                    print("\nMelhor caminho encontrado: \n")
-                    for i in range(len(path)-1, -1, -1):
-                        print(path[i], end='\t')
+                    if(path == None):
+                        print("\nCaminho não encontrado", end="")
+                    else:
+                        print("\nMelhor caminho encontrado: \n")
+                        for i in range(len(path)-1, -1, -1):
+                            print(path[i], end='\t')
 
                     print()
                 else:
@@ -324,9 +348,12 @@ while op != 0:
             elif op2 == 8:
                 if(verificarEntradas(mat8, start, goal)):
                     path = bnb(mat8, start, goal)
-                    print("\nMelhor caminho encontrado: \n")
-                    for i in range(len(path)-1, -1, -1):
-                        print(path[i], end='\t')
+                    if(path == None):
+                        print("\nCaminho não encontrado", end="")
+                    else:
+                        print("\nMelhor caminho encontrado: \n")
+                        for i in range(len(path)-1, -1, -1):
+                            print(path[i], end='\t')
 
                     print()
                 else:
@@ -403,9 +430,12 @@ while op != 0:
 
             if(verificarEntradas(matCriada, start, goal)):
                 path = bnb(matCriada, start, goal)
-                print("\nMelhor caminho encontrado: \n")
-                for i in range(len(path)-1, -1, -1):
-                    print(path[i], end='\t')
+                if(path == None):
+                    print("\nCaminho não encontrado", end="")
+                else:
+                    print("\nMelhor caminho encontrado: \n")
+                    for i in range(len(path)-1, -1, -1):
+                        print(path[i], end='\t')
 
                 print()
             else:
@@ -420,7 +450,4 @@ while op != 0:
        print("Saindo...") 
     
     elif(op > 2 or sair != False):
-        print("\nOpção inválida! Tente novamente.")    
-
-
-   
+        print("\nOpção inválida! Tente novamente.")
