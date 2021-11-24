@@ -1,7 +1,5 @@
 # Branch and Bound
 
-</br><h3> Grupo: Braian dos Santos Calot, João Victor Simões Gonçalves e Igor Fracalossi do Nascimento Lozorio.</h3></br>
-
 ## Explicação
 <h3> 
     Esse programa foi feito na linguagem Python e utilizando o algoritmo A* como base. Dada uma matriz onde 0 e -1 são células onde não é possível passar, e 1 ou acima indica uma célula onde é possível passar e o custo para passar por ela, o algoritmo encontra o melhor caminho entre uma célula inicial ( START ) e uma célula final ( GOAL ). Neste caso, o caminho encontrado é o de menor custo.
